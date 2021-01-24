@@ -1,0 +1,8 @@
+com\mycompany\customerservice\service\HealthCheckService.class
+com\mycompany\customerservice\model\CustomerModel.class
+com\mycompany\customerservice\entity\CustomerMaster.class
+com\mycompany\customerservice\config\Producers.class
+com\mycompany\customerservice\entity\CustomerMaster_.class
+com\mycompany\customerservice\config\CrossOriginResourceSharingFilter.class
+com\mycompany\customerservice\config\BootStrap.class
+com\mycompany\customerservice\service\CustomerService.class

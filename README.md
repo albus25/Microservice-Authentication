@@ -2,6 +2,7 @@
  JASS Authentication with Microservice
 
 -Create JDBCPool and JNDI from Payara Admin console
+
 -Do everything in Client App
 -Create Project config.java file in Source Packages:
 	@DeclareRoles({"Admin","Student","College"})

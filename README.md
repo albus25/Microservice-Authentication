@@ -4,13 +4,13 @@
 -Create JDBCPool and JNDI from Payara Admin console
 
 -Do everything in Client App
--Create Project config.java file in Source Packages:
-	@DeclareRoles({"Admin","Student","College"})
 
+-Create Project config.java file in Source Packages:
+
+	@DeclareRoles({"Admin","Student","College"})
 	@CustomFormAuthenticationMechanismDefinition(
         	loginToContinue = @LoginToContinue(loginPage = "/login")
 	)
-
 	@DatabaseIdentityStoreDefinition(
         	dataSourceLookup = "hogwarts/jndi",
 	        callerQuery = "select password from tbluser where userName=?",
@@ -19,12 +19,16 @@
 	        priority = 30)
 	@ApplicationScoped
 	@Named
+
 -Create CDI Bean in Source Packages:
+
 	    @Inject SecurityContext sc;
 	    private String userName;
 	    private String password;
- -create GetterSetter for userName & password
- -Now create login() method in bean file:
+
+-create GetterSetter for userName & password
+
+-Now create login() method in bean file:
       
       try{
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -63,4 +67,5 @@
         } catch(Exception e) {
             System.out.println(e);
         }
+
 -Now create login file and create Login Form

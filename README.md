@@ -22,9 +22,9 @@
 
 -Create CDI Bean in Source Packages:
 
-	    @Inject SecurityContext sc;
-	    private String userName;
-	    private String password;
+	@Inject SecurityContext sc;
+	private String userName;
+	private String password;
 
 -create GetterSetter for userName & password
 

@@ -1,0 +1,21 @@
+#!/bin/sh
+#deploy="false"
+deploy="true"
+
+image=CustomerClient1
+version=1.0-SNAPSHOT
+latest=true
+
+#OPTIONS="--no-cache --force-rm"
+#OPTIONS="--no-cache"
+#OPTIONS="--force-rm"
+OPTIONS=""
+
+docker build ${OPTIONS} -t saurabhsali/${image}:1.0-SNAPSHOT .
+if [ "$?" -eq 0 ] && [ ${deploy} == "true" ]; then
+    docker push saurabhsali/${image}:1.0-SNAPSHOT
+    if [ "$latest" == "true" ]; then
+        docker tag saurabhsali/${image}:1.0-SNAPSHOT saurabhsali/${image}:latest
+        docker push saurabhsali/${image}:latest
+    fi
+fi

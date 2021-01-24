@@ -1,0 +1,11 @@
+beans\LoginBean.class
+com\mycompany\customerclient1\service\CustomerClient.class
+com\mycompany\customerclient1\config\BootStrap.class
+com\mycompany\customerclient1\config\CrossOriginResourceSharingFilter.class
+com\mycompany\customerservice\entity\CustomerMaster.class
+com\mycompany\customerclient1\service\ExampleService.class
+com\mycompany\customerclient1\service\HealthCheckService.class
+com\mycompany\customerclient1\config\Producers.class
+com\mycompany\customerclient1\servlet\NewServlet.class
+project\config.class
+com\mycompany\customerclient1\servlet\CustomerServlet.class

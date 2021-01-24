@@ -24,6 +24,7 @@
 	    private String password;
  -create GetterSetter for userName & password
  -Now create login() method in bean file:
+      
       try{
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();

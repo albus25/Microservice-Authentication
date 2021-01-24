@@ -30,42 +30,42 @@
 
 -Now create login() method in bean file:
       
-     try{
-           HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-           HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-           Credential credential = new UsernamePasswordCredential(getUserName(), new Password(getPassword()));
-           AuthenticationStatus status = sc.authenticate(request, response, withParams().credential(credential));
-           request.getSession().setAttribute("role", "");
-           
-           if(status.equals(SUCCESS)) 
-           {
-               if(sc.isCallerInRole("Admin"))
-               {
-                   System.out.println("Admin");
-                   request.getSession().setAttribute("role", "Admin");
-                   request.getSession().setAttribute("username", getUserName());
-                   RequestDispatcher rd = request.getRequestDispatcher("CustomerServlet");
-                   rd.forward(request, response);
-               }
-               else if(sc.isCallerInRole("Student"))
-               {
-                   System.out.println("Student");
-                   request.getSession().setAttribute("role", "Student");
-                   request.getSession().setAttribute("username", getUserName());
-                   RequestDispatcher rd = request.getRequestDispatcher("NewServlet");
-                   rd.forward(request, response);
-               }
-               else
-               {
-                   response.sendRedirect("login.xhtml");
-               }
-           }
-           else if(status.equals(SEND_FAILURE))
-           {
-               response.sendRedirect("login.xhtml");
-           }
-       } catch(Exception e) {
-           System.out.println(e);
-       }
+    try{
+          HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+          HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+          Credential credential = new UsernamePasswordCredential(getUserName(), new Password(getPassword()));
+          AuthenticationStatus status = sc.authenticate(request, response, withParams().credential(credential));
+          request.getSession().setAttribute("role", "");
+          
+          if(status.equals(SUCCESS)) 
+          {
+              if(sc.isCallerInRole("Admin"))
+              {
+                  System.out.println("Admin");
+                  request.getSession().setAttribute("role", "Admin");
+                  request.getSession().setAttribute("username", getUserName());
+                  RequestDispatcher rd = request.getRequestDispatcher("CustomerServlet");
+                  rd.forward(request, response);
+              }
+              else if(sc.isCallerInRole("Student"))
+              {
+                  System.out.println("Student");
+                  request.getSession().setAttribute("role", "Student");
+                  request.getSession().setAttribute("username", getUserName());
+                  RequestDispatcher rd = request.getRequestDispatcher("NewServlet");
+                  rd.forward(request, response);
+              }
+              else
+              {
+                  response.sendRedirect("login.xhtml");
+              }
+          }
+          else if(status.equals(SEND_FAILURE))
+          {
+              response.sendRedirect("login.xhtml");
+          }
+      } catch(Exception e) {
+          System.out.println(e);
+      }
 
 -Now create login file and create Login Form
